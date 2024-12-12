@@ -16,6 +16,11 @@ To better visualize the raw data, it is recommented to have "Microsoft Excel".
 
 # Main Programs Written To Analyze The Data
 
+There are three main programs which answer the topic questions. 
+
+"FinalQuestion1.py" answers question 1. 
+
+<img width="1190" alt="image" src="https://github.com/user-attachments/assets/11237fe0-953f-467d-9c93-05672569334d" />
 
 
  This is an analysis of a dataset where lituium ion batteries were rapidly aged
