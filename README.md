@@ -76,6 +76,7 @@ Figures 3.1, 3.2, and 3.3 as shown below give the main portions of the code pres
 <p align="center">
 <img width="416" alt="image" align="center" src="https://github.com/user-attachments/assets/646e53f0-df36-4859-99dd-b03b327ed21a" />
 <p align="center">Figure 3.2: Code Segment For Calculating Overheating Temperature</p>
+<p align="center">
 <img width="298" alt="image" align="center" src="https://github.com/user-attachments/assets/7facde69-5097-4fa5-b393-7bada0c15d5c" />
 <p align="center">Figure 3.3: Code Segment For Arranging Data Into Table Format</p>
 </p>
