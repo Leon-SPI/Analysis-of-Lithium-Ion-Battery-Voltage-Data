@@ -4,7 +4,9 @@ This repo contains analysis of lithium ion battery data. The data set was acquir
 The analysis answers the general questions stated below, relating to lithium-ion batteries.
 
 Question 1: How does a battery's voltage relate over time?
+
 Question 2: How does a battery's temperature relate to load current?
+
 Question 3: How does a battery's voltage relate to load current?
 
 # Requirements
