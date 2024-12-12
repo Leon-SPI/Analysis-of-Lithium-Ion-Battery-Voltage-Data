@@ -31,6 +31,7 @@ The relevant code is shown below in Figure 1.1 and 1.2.
 <p align="center">
 <img width="490" alt="image" align="center" src="https://github.com/user-attachments/assets/465a84b2-041a-40b7-914c-8b9df7470f11" />
 <p align="center">Figure 1.1: Code Segment For Calculating Start And End Of First Cycle</p>
+<p align="center">
 <img width="592" alt="image" align="center" src="https://github.com/user-attachments/assets/a430f585-8586-4ae4-938d-237a0f8535f7" />
 <p align="center">Figure 1.2: Code Segment For Calculating Start And End Of Last Cycle</p>
 </p>
