@@ -1,6 +1,5 @@
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
 from pathlib import Path
 
 # Load the CSV file
@@ -76,10 +75,11 @@ df = pd.DataFrame({
 
 # Set pandas options to display all columns
 pd.set_option('display.max_columns', None)
+pd.set_option('display.width', 1000)
 
 # Print the table
 print(df)
-
+'''
 # Plot the data
 plt.plot(first_voltage_time, first_voltage_values, label='Battery Capacity (V)', color='blue', marker='*')
 plt.title("Battery Capacity (V) vs Time (s)")
@@ -88,10 +88,4 @@ plt.ylabel("Battery Capacity (V)")
 plt.legend()
 plt.tight_layout()
 plt.show()
-
-# Print out the statement
-initial_voltage = first_voltage_values[0]
-final_voltage = first_voltage_values[-1]
-
-print(f"Starting Battery Capacity: {initial_voltage} V\n"
-      f"End Battery Capacity: {final_voltage} V")
+'''
