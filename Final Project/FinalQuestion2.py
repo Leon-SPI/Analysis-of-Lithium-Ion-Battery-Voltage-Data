@@ -24,25 +24,30 @@ battery_temp = data['temperature_battery']
 first_cycle_start, first_cycle_end = cycle_index_start_finish(mode_data)
 last_cycle_start, last_cycle_end = reverse_cycle_index_start_finish(mode_data)
 
+# The code below extracts the relevant data for the last cycle.
+# I use .reset_index to ensure the indices are in sequential order
 load_current_last_cycle = load_current[last_cycle_start:last_cycle_end].reset_index(drop=True)
 time_last_cycle = time[last_cycle_start:last_cycle_end].reset_index(drop=True)
 time_last_cycle = time_last_cycle - time_last_cycle.iloc[0]
 battery_voltage_last_cycle = battery_voltage[last_cycle_start:last_cycle_end].reset_index(drop=True)
 
-# Slice the data for the first cycle
+# The code below extracts the relevant data for the first cycle.
+# I use .reset_index to ensure the indices are in sequential order
 load_current_first_cycle = load_current[first_cycle_start:first_cycle_end].reset_index(drop=True)
 time_first_cycle = time[first_cycle_start:first_cycle_end].reset_index(drop=True)
 time_first_cycle = time_first_cycle - time_first_cycle.iloc[0]
 battery_voltage_first_cycle = battery_voltage[first_cycle_start:first_cycle_end].reset_index(drop=True)
 
-
+# The code below gets the end time and load current for the last cycle
 time_last_cycle = time_last_cycle[:-1]
 load_current_last_cycle = load_current_last_cycle[:-1]
 # Ensure both arrays have the same length for plotting
-time_first_cycle = time_first_cycle[:-1]  # Trim the last element to match the length of derivative_load_current\
+# Trim the last element to match the length of derivative_load_current
+time_first_cycle = time_first_cycle[:-1]
 load_current_first_cycle = load_current_first_cycle[:-1]
 
-resample_factor = 50  # Example: every 10th point
+# The code below resamples the data every 50th point for more drastic difference
+resample_factor = 50
 load_current_resampled = load_current_first_cycle[::resample_factor].reset_index(drop=True)
 first_time_resampled = time_first_cycle[::resample_factor].reset_index(drop=True)
 battery_voltage_resampled = battery_voltage_first_cycle[::resample_factor].reset_index(drop=True)
@@ -55,42 +60,40 @@ last_battery_voltage_resampled = battery_voltage_last_cycle[::resample_factor].r
 # Define the rate_of_change function
 def rate_of_change(array1, array2):
     # Initialize empty arrays to hold the rate of change values
-    temp_array1 = [0] * (len(array1) - 1)  # Length is one less than input
-    temp_array2 = [0] * (len(array2) - 1)  # Length is one less than input
+    temp_array1 = [0] * (len(array1) - 1)
+    temp_array2 = [0] * (len(array2) - 1)
 
-    # Calculate rate of change for array1 (first derivative)
+    # Calculate difference for array1
     for i in range(len(array1) - 1):
         temp_array1[i] = array1[i + 1] - array1[i]
 
-    # Calculate rate of change for array2 (first derivative)
+    # Calculate difference for array2
     for i in range(len(array2) - 1):
         temp_array2[i] = array2[i + 1] - array2[i]
 
-    # Calculate rate of change (element-wise division) and return it
+    # Calculate rate of change
     roc = [x / y if y != 0 else 0 for x, y in zip(temp_array1, temp_array2)]
     return roc
 
+# For first cycle:
 # Calculate the derivative of load_current with respect to time
 derivative_load_current = rate_of_change(load_current_first_cycle, time_first_cycle)
+# Calculate the derivative of battery voltage with respect to time
 derivative_battery_voltage = rate_of_change(battery_voltage_first_cycle, time_first_cycle)
+# Calculate the derivative of resampled battery voltage with respect to time
 resampled_derivative_battery_voltage = rate_of_change(battery_voltage_resampled, first_time_resampled)
 
+# Does the same function as likes 78-83 but for the last cycle
 last_derivative_load_current = rate_of_change(load_current_last_cycle, time_last_cycle)
 last_derivative_battery_voltage = rate_of_change(battery_voltage_last_cycle, time_last_cycle)
 last_resampled_derivative_battery_voltage = rate_of_change(last_battery_voltage_resampled, last_time_resampled)
-print(last_battery_voltage_resampled)
-print(last_time_resampled)
-print(last_resampled_derivative_battery_voltage)
 
-print(len(resampled_derivative_battery_voltage), len(first_time_resampled))
-
-first_time_resampled = first_time_resampled[:-1]  # Trim the last element to match the length of derivative_load_current\
-last_time_resampled = last_time_resampled[:-1]  # Trim the last element to match the length of derivative_load_current\
+# Trim last elements to match length of derivative of load current
+first_time_resampled = first_time_resampled[:-1]
+last_time_resampled = last_time_resampled[:-1]
 
 # Plot the data
-
 fig, ((ax1, ax12), (ax2, ax22)) = plt.subplots(2, 2, figsize=(8, 10))  # 2 rows, 2 column
-
 
 ax1.plot(time_first_cycle, load_current_first_cycle, label='Current Load (A)', color='blue', marker='*')  # Trim load_current_first_cycle to match time_first_cycle
 ax1.set_title("First Cycle: Current Load (A) vs Time (s)")

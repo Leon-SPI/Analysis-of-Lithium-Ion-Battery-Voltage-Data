@@ -20,7 +20,7 @@ mode_data = data['mode']
 
 
 ## The function below finds the indices for the start and end of a discharge cycle.
-## Discharge data is indicated by a mode of -1, changing = 1, rest = 0.
+## Discharge data is indicated by a mode of -1, charging = 1, rest = 0.
 def cycle_index_start_finish(file_data):
     discharge_start = -1
     discharge_end = -1
@@ -40,9 +40,7 @@ def cycle_index_start_finish(file_data):
 
 first_discharge_start, first_discharge_end = cycle_index_start_finish(mode_data)
 
-##for data in mode_data[start_index:]:
-
-## The loop below uses range to transverse backwards within the data set.
+## The loop below uses range to transverse backwards within the data set and fine the indices for the last cycle.
 def reverse_cycle_index_start_finish(file_data):
     discharge_start_last = -1
     discharge_end_last = -1
@@ -61,6 +59,7 @@ def reverse_cycle_index_start_finish(file_data):
     return discharge_start_last, discharge_end_last
 last_discharge_start, last_discharge_end = reverse_cycle_index_start_finish(mode_data)
 
+# The code below gets the relevant data for the first and last cycle
 time_first_discharge_plot = time[first_discharge_start:first_discharge_end]
 time_last_discharge_plot = time[last_discharge_start:last_discharge_end]
 battery_voltage_first_plot = battery_voltage[first_discharge_start:first_discharge_end]
@@ -68,10 +67,11 @@ battery_voltage_last_plot = battery_voltage[last_discharge_start:last_discharge_
 load_current_first_plot = load_current[first_discharge_start:first_discharge_end]
 load_current_second_plot = load_current[last_discharge_start:last_discharge_end]
 
+# The code below resets the time to start at 0 and increment from there
 time_first_discharge_plot = time_first_discharge_plot - time_first_discharge_plot.iloc[0]
 time_last_discharge_plot = time_last_discharge_plot - time_last_discharge_plot.iloc[0]
 
-
+# The code below is for plotting the figures
 fig, ((ax1, ax3), (ax2, ax4)) = plt.subplots(2, 2, figsize=(8, 10))  # 2 rows, 2 column
 
 # Plot on the first subplot
@@ -92,7 +92,7 @@ ax2.legend()
 ax2.grid(True)
 ax2.set_ylim(math.floor(battery_voltage_last_plot.min()), math.ceil(battery_voltage_last_plot.max()))
 
-
+# Plot on the third subplot
 ax3.plot(time_first_discharge_plot, load_current_first_plot, label='Load Current (A)', color='blue', marker='*')
 ax3.set_title("First Cycle: Load Current vs Time")
 ax3.set_xlabel("Time (s)")
@@ -101,6 +101,7 @@ ax3.legend()
 ax3.grid(True)
 ax3.set_ylim(math.floor(load_current_first_plot.min()), math.ceil(load_current_first_plot.max()))
 
+# Plot on the fourth subplot
 ax4.plot(time_last_discharge_plot, load_current_second_plot, label='Load Current (A)', color='green', marker='*')
 ax4.set_title("Last Cycle: Load Current vs Time")
 ax4.set_xlabel("Time (s)")
@@ -116,6 +117,10 @@ plt.tight_layout()
 plt.show()
 
 ### End of question 1 ###
+
+# The code below are potential analysis ideas which were not pursued.
+# They are kept incase people are interested in doing future work with it as it may still be useful.
+# For the code below, signal is needed from scipy and was imported as sg.
 '''
 def peaks_height(signal):
     max_height = 0
