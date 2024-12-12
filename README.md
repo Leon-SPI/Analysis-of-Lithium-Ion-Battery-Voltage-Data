@@ -11,6 +11,7 @@ Question 3: How does a battery's voltage relate to load current?
 
 # Requirements
 The list of requirements are in the "Requirements.txt" file. It is recommended to use pip install.
+
 To better visualize the raw data, it is recommented to have "Microsoft Excel".
 
 # Main Programs Written To Analyze The Data
