@@ -85,6 +85,10 @@ Although Figures 3.1, 3.2, and 3.3 show the main portions of the code, it is hig
 
 # Tutorial/Walkthrough
 
+
+https://github.com/user-attachments/assets/06838998-f679-4dc9-b33d-d84818a47bd0
+
+
 Please visit the "Code Walkthrough.mp4" file within the git repo for a full video walkthrough of how to run the code and the resulting analysis. A short description is as follows.
 
 For "FinalQuestion1.py", you have to run the file. Once you do, Figure 1 will appear on your screen showing you four plots of the first and last battery discharge cycles. These plots display battery voltage and load current over time. Once you run "FinalQuestion2.py", the Figure 1 for "FinalQuestion1.py" will also appear. After clicking out of it, you will see Figure 2 which shows load current and the rate of change of battery voltage over time. Once you run "FinalQuestion3.py", a print statement and table will appear within the terminal The print statement will tell you the total number of discharge cycles for the battery. The table will show you relevant information for the battery at each discharge cycle such as time it took to discharge and temperature. 
