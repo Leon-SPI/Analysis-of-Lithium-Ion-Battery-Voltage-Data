@@ -85,9 +85,7 @@ Although Figures 3.1, 3.2, and 3.3 show the main portions of the code, it is hig
 
 # Tutorial/Walkthrough
 
-<p align="center">
 https://github.com/user-attachments/assets/06838998-f679-4dc9-b33d-d84818a47bd0
-</p>
 <p align="center">Figure 4: Video Walkthrough For Code</p>
 
 Please visit the "Code Walkthrough.mp4" file within the git repo for a full video walkthrough of how to run the code and the resulting analysis. A short description is as follows.
