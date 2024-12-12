@@ -21,6 +21,7 @@ There are three main programs which answer the topic questions.
 "FinalQuestion1.py" answers question 1. 
 
 <img width="1190" alt="image" src="https://github.com/user-attachments/assets/11237fe0-953f-467d-9c93-05672569334d" />
+Figure 1: Battery Voltage (V) And Load Current (A) Over Time For First And Last Discharge Cycles
 
 
  This is an analysis of a dataset where lituium ion batteries were rapidly aged
