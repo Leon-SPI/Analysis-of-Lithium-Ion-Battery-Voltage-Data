@@ -1,6 +1,5 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-from scipy import signal as sg
 import math
 from pathlib import Path
 
@@ -117,7 +116,7 @@ plt.tight_layout()
 plt.show()
 
 ### End of question 1 ###
-
+'''
 def peaks_height(signal):
     max_height = 0
     for val in signal:
@@ -162,3 +161,4 @@ plt.legend()
 
 plt.tight_layout()
 plt.show()
+'''

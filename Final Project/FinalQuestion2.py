@@ -42,7 +42,7 @@ load_current_last_cycle = load_current_last_cycle[:-1]
 time_first_cycle = time_first_cycle[:-1]  # Trim the last element to match the length of derivative_load_current\
 load_current_first_cycle = load_current_first_cycle[:-1]
 
-resample_factor = 10  # Example: every 10th point
+resample_factor = 50  # Example: every 10th point
 load_current_resampled = load_current_first_cycle[::resample_factor].reset_index(drop=True)
 first_time_resampled = time_first_cycle[::resample_factor].reset_index(drop=True)
 battery_voltage_resampled = battery_voltage_first_cycle[::resample_factor].reset_index(drop=True)
@@ -78,6 +78,9 @@ resampled_derivative_battery_voltage = rate_of_change(battery_voltage_resampled,
 last_derivative_load_current = rate_of_change(load_current_last_cycle, time_last_cycle)
 last_derivative_battery_voltage = rate_of_change(battery_voltage_last_cycle, time_last_cycle)
 last_resampled_derivative_battery_voltage = rate_of_change(last_battery_voltage_resampled, last_time_resampled)
+print(last_battery_voltage_resampled)
+print(last_time_resampled)
+print(last_resampled_derivative_battery_voltage)
 
 print(len(resampled_derivative_battery_voltage), len(first_time_resampled))
 
