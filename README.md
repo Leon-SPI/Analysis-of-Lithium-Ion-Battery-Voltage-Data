@@ -73,6 +73,7 @@ Figures 3.1, 3.2, and 3.3 as shown below give the main portions of the code pres
 <p align="center">
 <img width="323" alt="image" align="center" src="https://github.com/user-attachments/assets/64d1efdf-9703-4469-b958-a9d383df0a26" />
 <p align="center">Figure 3.1: Code Segment For Finding Start And End Times For Each Cycle</p>
+<p align="center">
 <img width="416" alt="image" align="center" src="https://github.com/user-attachments/assets/646e53f0-df36-4859-99dd-b03b327ed21a" />
 <p align="center">Figure 3.2: Code Segment For Calculating Overheating Temperature</p>
 <img width="298" alt="image" align="center" src="https://github.com/user-attachments/assets/7facde69-5097-4fa5-b393-7bada0c15d5c" />
